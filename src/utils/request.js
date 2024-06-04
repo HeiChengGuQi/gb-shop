@@ -34,9 +34,9 @@ instance.interceptors.response.use(
     // 设置响应正确时的处理函数
     response => {
         NProgress.done()//关闭进度条
-        if (response.data.code !== 200){
+        if (response.data.code !== 200) {
 
-        }else {
+        } else {
             return response.data.data;
         }
         return response

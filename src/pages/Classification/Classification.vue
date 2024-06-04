@@ -1,30 +1,28 @@
 <script setup>
-
 import Header from "../../components/Header.vue";
-
+import ClassifcationHeader from "../../components/ClassifcationHeader.vue";
 </script>
 
 <template>
-  <div id="home-page">
+  <div id="classification-page">
     <Header></Header>
-    <div class="home-main">
-      <div class="home-main-detail">
-        <div class="title">
-          <h1>欢迎来到首页</h1>
-        </div>
-
+    <div class="classification-main">
+      <div class="classification-table">
+        <ClassifcationHeader/>
       </div>
+
     </div>
   </div>
+
 </template>
 
 <style scoped>
-#home-page {
+#classification-page {
   width: 100%;
   height: 100%;
 }
 
-.home-main {
+.classification-main {
   width: 100%;
   height: 100vh;
   display: flex;
@@ -32,10 +30,7 @@ import Header from "../../components/Header.vue";
   background: url("../../assets/org.jpg") no-repeat center center fixed;
   background-size: cover;
 }
-
-.home-main-detail {
-  min-width: 200px;
-
+.classification-table {
+  width: 1200px;
 }
-
 </style>

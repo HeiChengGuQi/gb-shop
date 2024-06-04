@@ -3,15 +3,16 @@ import {defineUser} from "../../store/userInfo.js";
 import {ref, reactive} from 'vue'
 import {useRouter} from "vue-router";
 
-let sysUser=defineUser();
+let sysUser = defineUser();
 const router = useRouter();
 let loginUser = reactive({
   username: "",
   userPwd: ""
 })
-function login(){
-  sysUser.username=loginUser.username
-  sessionStorage.setItem("username",sysUser.username);
+
+function login() {
+  sysUser.username = loginUser.username
+  sessionStorage.setItem("username", sysUser.username);
   router.push("/");
 }
 </script>
@@ -22,7 +23,7 @@ function login(){
         label-width="80px"
         class="login-form"
     >
-      <div class="logo"><img src="../../assets/logo.png" alt="UNK"/> </div>
+      <div class="logo"><img src="../../assets/logo.png" alt="UNK"/></div>
       <h2>用户登录</h2>
       <el-form-item label="用户名" prop="username">
         <el-input
@@ -58,19 +59,23 @@ function login(){
   background: url("../../assets/jb.jpg") no-repeat center center fixed;
   background-size: cover;
 }
+
 .login-form {
   width: 400px;
   text-align: center;
 }
-.logo{
+
+.logo {
   width: 94px;
   height: 94px;
   margin: 0 auto;
-  img{
+
+  img {
     width: 100%;
   }
 }
-.button{
+
+.button {
   width: 800px;
   height: 40px;
 }

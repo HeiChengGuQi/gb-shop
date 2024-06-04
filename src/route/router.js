@@ -5,16 +5,16 @@ const router = createRouter({
     history: createWebHistory(),
     routes: staticRoutes,
 });
-router.beforeEach((to,from,next)=>{
-    if (to.path==='/login'){
+router.beforeEach((to, from, next) => {
+    if (to.path === '/login') {
         //判断如果是去登录视图直接放行即可
         next()
-    }else{
+    } else {
         //其他任何资源都要登录之后才会放行
         const username = sessionStorage.getItem("username");
-        if (null!=username){
+        if (null != username) {
             next()
-        }else{
+        } else {
             next('/login')
         }
     }

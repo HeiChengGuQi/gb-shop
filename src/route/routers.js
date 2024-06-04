@@ -13,10 +13,14 @@ export const staticRoutes = [
         path: "/login",
         component: () => import("../pages/Login/Login.vue"),
         name: "LoginView",
-    },{
-    path: "/manage",
+    }, {
+        path: "/manage",
         component: () => import("../pages/Manage/Manage.vue"),
         name: "ManageView",
+    }, {
+        path: "/classification",
+        component: () => import("../pages/Classification/Classification.vue"),
+        name: "ClassificationView",
     }
 
 ];

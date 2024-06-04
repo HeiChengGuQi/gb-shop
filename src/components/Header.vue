@@ -1,6 +1,8 @@
 <script setup>
 import {ref} from "vue";
-let username=ref(sessionStorage.getItem("username"));
+import {ArrowDown} from "@element-plus/icons-vue";
+
+let username = ref(sessionStorage.getItem("username"));
 
 
 </script>
@@ -8,7 +10,6 @@ let username=ref(sessionStorage.getItem("username"));
 <template>
   <div id="page-header">
     <div class="header">
-
       <div class="header-main">
         <div class="header-flex">
           <div class="logo">
@@ -17,15 +18,31 @@ let username=ref(sessionStorage.getItem("username"));
           <div class="nav">
             <router-link to="/">首页</router-link>
             <router-link to="/manage">商品管理</router-link>
-            <router-link to="/">分类管理</router-link>
-            <router-link to="/">商品管理</router-link>
-            <router-link to="/">用户订单</router-link>
+            <router-link to="/classification">分类管理</router-link>
             <router-link to="/">订单管理</router-link>
-            <router-link to="/">系统设置</router-link>
+            <router-link to="/">用户管理</router-link>
+            <router-link to="/">系统管理</router-link>
           </div>
         </div>
-          <div class="avatar"><img src="../assets/logo.png" alt="UNK"></div>
-          <div class="name">{{username}}</div>
+        <div class="avatar"><img src="../assets/logo.png" alt="UNK"></div>
+        <div class="name">
+          <el-dropdown>
+            <el-button type="primary">
+              您好:{{ username }}
+              <el-icon class="el-icon--right">
+                <arrow-down/>
+              </el-icon>
+            </el-button>
+            <template #dropdown>
+              <el-dropdown-menu>
+                <el-dropdown-item @click="">新增商品</el-dropdown-item>
+                <el-dropdown-item>个人中心</el-dropdown-item>
+                <el-dropdown-item>系统设置</el-dropdown-item>
+                <el-dropdown-item @click="">退出登录</el-dropdown-item>
+              </el-dropdown-menu>
+            </template>
+          </el-dropdown>
+        </div>
       </div>
 
     </div>
@@ -52,6 +69,7 @@ let username=ref(sessionStorage.getItem("username"));
     width: 72px;
     height: 72px;
     text-align: left;
+
     img {
       width: 100%;
       overflow-clip-margin: content-box;
@@ -70,10 +88,12 @@ let username=ref(sessionStorage.getItem("username"));
   justify-content: space-between;
   margin: 0 auto;
 }
-.nav{
+
+.nav {
   display: flex;
   align-items: center;
-  a{
+
+  a {
     width: auto;
     height: 40px;
     font-size: 16px;
@@ -85,27 +105,32 @@ let username=ref(sessionStorage.getItem("username"));
     color: #ff4d4f;
     margin-left: 80px;
     cursor: pointer;
+    text-decoration: none;
   }
 
 }
-.header-flex{
+
+.header-flex {
   display: flex;
   align-items: center;
 }
-.avatar{
+
+.avatar {
   width: 54px;
   height: 54px;
   border-radius: 50%;
   margin-left: 20px;
-  img{
+
+  img {
     width: 100%;
   }
 
 }
-.name{
+
+.name {
   font-size: 14px;
   font-weight: 400;
-  color:  #ff4d4f;
+  color: #ff4d4f;
   line-height: 24px;
   cursor: pointer;
 }
