@@ -30,6 +30,7 @@ import ClassifcationHeader from "../../components/ClassifcationHeader.vue";
   background: url("../../assets/org.jpg") no-repeat center center fixed;
   background-size: cover;
 }
+
 .classification-table {
   width: 1200px;
 }

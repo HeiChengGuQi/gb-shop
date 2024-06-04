@@ -19,9 +19,9 @@ let username = ref(sessionStorage.getItem("username"));
             <router-link to="/">首页</router-link>
             <router-link to="/manage">商品管理</router-link>
             <router-link to="/classification">分类管理</router-link>
-            <router-link to="/">订单管理</router-link>
-            <router-link to="/">用户管理</router-link>
-            <router-link to="/">系统管理</router-link>
+            <router-link to="/order">订单管理</router-link>
+            <router-link to="/user">用户管理</router-link>
+            <router-link to="/system">系统管理</router-link>
           </div>
         </div>
         <div class="avatar"><img src="../assets/logo.png" alt="UNK"></div>

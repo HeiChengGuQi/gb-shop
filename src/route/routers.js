@@ -21,6 +21,18 @@ export const staticRoutes = [
         path: "/classification",
         component: () => import("../pages/Classification/Classification.vue"),
         name: "ClassificationView",
+    }, {
+        path: "/order",
+        component: () => import("../pages/Order/Order.vue"),
+        name: "OrderView",
+    }, {
+        path: "/user",
+        component: () => import("../pages/User/User.vue"),
+        name: "UserView",
+    }, {
+        path: "/system",
+        component: () => import("../pages/System/System.vue"),
+        name: "SystemView",
     }
 
 ];
