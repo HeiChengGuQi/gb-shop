@@ -4,8 +4,12 @@
 
 <template>
   <div id="system-page">
-    <Header/>
+    <Header></Header>
     <div class="system-main">
+      <div>
+        <h1>系统设置</h1>
+
+      </div>
 
     </div>
   </div>
