@@ -1,10 +1,23 @@
 <script setup>
 import {ref} from "vue";
 import {ArrowDown} from "@element-plus/icons-vue";
+import {defineUser} from "../store/userInfo.js";
+import pinia from "../store/pinia.js";
+import {useRouter} from "vue-router";
 
 let username = ref(sessionStorage.getItem("username"));
-
-
+const router = useRouter();
+let sysUser = defineUser(pinia);
+function logOut(){
+  sysUser.$reset()
+  router.push("/login")
+}
+function goInsert(){
+  router.push("/manageAdd")
+}
+function goSystem(){
+  router.push("/system")
+}
 </script>
 
 <template>
@@ -24,21 +37,21 @@ let username = ref(sessionStorage.getItem("username"));
             <router-link to="/system">系统管理</router-link>
           </div>
         </div>
-        <div class="avatar"><img src="../assets/logo.png" alt="UNK"></div>
+        <div class="avatar"><img :src="sysUser.avatar" alt="UNK"></div>
         <div class="name">
           <el-dropdown>
             <el-button type="primary">
-              您好:{{ username }}
+              您好:{{ sysUser.nickName }}
               <el-icon class="el-icon--right">
                 <arrow-down/>
               </el-icon>
             </el-button>
             <template #dropdown>
               <el-dropdown-menu>
-                <el-dropdown-item @click="">新增商品</el-dropdown-item>
+                <el-dropdown-item @click="goInsert">新增商品</el-dropdown-item>
                 <el-dropdown-item>个人中心</el-dropdown-item>
-                <el-dropdown-item>系统设置</el-dropdown-item>
-                <el-dropdown-item @click="">退出登录</el-dropdown-item>
+                <el-dropdown-item @click="goSystem">系统设置</el-dropdown-item>
+                <el-dropdown-item @click="logOut">退出登录</el-dropdown-item>
               </el-dropdown-menu>
             </template>
           </el-dropdown>

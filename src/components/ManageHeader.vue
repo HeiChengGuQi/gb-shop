@@ -8,7 +8,7 @@
       <router-link to="/manage">商品管理</router-link>
     </div>
     <div>
-      <router-link to="/">商品添加</router-link>
+      <router-link to="/manageAdd">商品添加</router-link>
     </div>
   </div>
 </template>

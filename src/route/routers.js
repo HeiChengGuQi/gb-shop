@@ -33,6 +33,10 @@ export const staticRoutes = [
         path: "/system",
         component: () => import("../pages/System/System.vue"),
         name: "SystemView",
+    },{
+        path: "/manageAdd",
+        component: () => import("../pages/Manage/ManageAdd.vue"),
+        name: "ManageAddView",
     }
 
 ];

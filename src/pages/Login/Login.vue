@@ -2,24 +2,27 @@
 import {defineUser} from "../../store/userInfo.js";
 import {ref, reactive} from 'vue'
 import {useRouter} from "vue-router";
+import {getLogin} from "../../api/api.js";
 
 let sysUser = defineUser();
 const router = useRouter();
 let loginUser = reactive({
   username: "",
-  userPwd: ""
+  password: ""
 })
 
-function login() {
-  sysUser.username = loginUser.username
-  sessionStorage.setItem("username", sysUser.username);
-  router.push("/");
+async function login() {
+  let {data} = await getLogin(loginUser)
+  if (data.uid != null) {
+    sysUser.initUser(data)
+
+    await router.push("/")
+  }
 }
 </script>
 <template>
   <div class="login-container">
     <el-form
-        ref="formRef"
         label-width="80px"
         class="login-form"
     >
@@ -34,10 +37,11 @@ function login() {
             placeholder="请输入用户名"
         ></el-input>
       </el-form-item>
-      <el-form-item label="密码" prop="userPwd">
+      <el-form-item label="密码" prop="password">
         <el-input
-            v-model="loginUser.userPwd"
+            v-model="loginUser.password"
             type="password"
+            name="password"
             autocomplete="off"
             placeholder="请输入密码"
             show-password
